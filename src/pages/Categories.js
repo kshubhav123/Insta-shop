@@ -74,7 +74,7 @@ export const Categories = () => {
   function ProductList({ products }) {
     return (
       <div className="row">
-        {products.lenght >= 0 ?products.map((data) => (
+        {products.length >= 0 ?products.map((data) => (
           <div className='col-lg-4 col-md-6 my-3 mb-5'>
             <Link to={`/singleproduct/${data.id}/${data.category}`} className='card border-0 text-decoration-none'>
               <img src={data.img[0]} alt="product img" height="367" />
