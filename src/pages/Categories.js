@@ -83,7 +83,7 @@ export const Categories = () => {
               <div className='fs-6 fw-bold mx-2'> ₹ {data.price}  </div>
             </Link>
           </div>
-        )):<div>hhhhhhhhhhhh</div>}
+        )):""}
       </div>
     );
   }
