@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export const Categories = () => {
         onCategoryClick={handleCategoryClick}
         selectedCategory={selectedCategory}
       />
-      <hr className="border border-black border-3"/>
+      <hr className="border border-black border-3" />
       <ProductList products={filteredProducts} />
     </div>
   );
@@ -64,7 +64,7 @@ export const Categories = () => {
 
 
 
-          
+
         </ul>
       </div>
     );
@@ -74,16 +74,18 @@ export const Categories = () => {
   function ProductList({ products }) {
     return (
       <div className="row">
-        {products.length >= 0 ?products.map((data) => (
+        {products.length >= 0 ? products.map((data) => (
           <div className='col-lg-4 col-md-6 my-3 mb-5'>
             <Link to={`/singleproduct/${data.id}/${data.category}`} className='card border-0 text-decoration-none'>
-              <img src={data.img[0]} alt="product img" height="367" />
+              {data.img && data.img.length > 0 ? (
+                <img src={data.img[0]} alt="product img" height="367" />
+              ) : null}
               <div className='small text-secondary mx-2 mt-2'>{data.brand}</div>
               <div className='m-2 fs-6'>{data.title} </div>
               <div className='fs-6 fw-bold mx-2'> ₹ {data.price}  </div>
             </Link>
           </div>
-        )):""}
+        )) : ""}
       </div>
     );
   }
